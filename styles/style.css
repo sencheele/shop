@@ -1,0 +1,207 @@
+:root {
+  --color-light: #EDF6FF;
+  --color-dark: #21201F;
+  --color-accent: #FCE000;
+  --color-accent-light: #ffec5d;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: YandexSansText;
+  src: local("YandexSansText-Medium"),
+    url("../fonts/YandexSansText-Medium.woff2") format("woff2"),
+    url("../fonts/YandexSansText-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: YandexSansText, sans-serif;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.banner {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  margin-inline: auto;
+  padding-top: 28px;
+  border-radius: 20px;
+  background-color: var(--color-light);
+}
+
+.storefront {
+  display: flex;
+  flex-direction: column;
+  width: 211px;
+  height: 431px;
+  margin-inline: auto;
+  background-image: url("../images/shelf.svg");
+}
+
+.draggable {
+  position: absolute;
+  cursor: grab;
+  transition-property: scale, opacity;
+  transition-duration: 0.3s;
+  touch-action: none;
+}
+
+.draggable.is-dragging {
+  cursor: grabbing;
+  scale: 1.15;
+  z-index: 10;
+}
+
+.product--wine,
+.product--milk,
+.product--jam,
+.product--cheese {
+  bottom: 443px;
+}
+
+.product--wine {
+  left: 60px;
+}
+
+.product--milk {
+  left: 102px;
+}
+
+.product--jam {
+  left: 145px;
+}
+
+.product--cheese {
+  left: 200px;
+}
+
+.product--meat,
+.product--ham,
+.product--chips {
+  bottom: 350px;
+}
+
+.product--meat {
+  left: 55px;
+}
+
+.product--ham {
+  left: 110px;
+}
+
+.product--ham .product__image {
+  translate: 0 10px;
+}
+
+.product--chips {
+  left: 180px;
+}
+
+.product--pineapple,
+.product--banana,
+.product--apple,
+.product--onion {
+  bottom: 255px;
+}
+
+.product--pineapple {
+  left: 55px;
+}
+
+.product--banana {
+  left: 100px;
+}
+
+.product--apple {
+  left: 155px;
+}
+
+.product--onion {
+  left: 200px;
+}
+
+.basket {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.banner__link {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 19px 18px 20px;
+  border-radius: 16px;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 17px;
+  font-size: 16px;
+  color: var(--color-dark);
+  background-color: var(--color-accent);
+  z-index: 1000;
+  animation: blink-animation 2s infinite;
+}
+
+@media (hover: hover) {
+  .banner__link:hover {
+    background-color: var(--color-accent-light);
+    animation: none;
+  }
+}
+
+@media (hover: none) {
+  .banner__link:active {
+    background-color: var(--color-accent-light);
+    animation: none;
+  }
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
